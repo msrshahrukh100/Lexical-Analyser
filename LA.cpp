@@ -1,3 +1,17 @@
+/*Lexical Analyser for the semester Assignment by Mohammad Shahrukh 
+Enter the DFA in info.txt in the format
+initial state
+final states
+transitions like current state and transition to final state
+eg.
+0 
+1
+# a b
+0 0 1
+1 ? 1
+
+*/
+
 #include <iostream>
 #include <string.h> 
 #include <fstream>
@@ -26,9 +40,6 @@ int main()
 
 		cout<<"Please enter the string you want to test: \n\t";
 		cin>>str;
-
-		// cout<<productions[0].length()<<endl;
-		// cout<<str[0]<<endl;
 		int flag=0;
 
 		for (int k=0; k<str.length(); k++)
@@ -42,22 +53,14 @@ int main()
 			for(l=0;l<productions[0].length();l++)  //The index of the input symbol is founf
 				if(productions[0][l] == str[k])
 					break;
-						// cout<<l<<endl;
 
 			currentstate = productions[j][l];
 			if(currentstate == '?')
 				break;
 
-			// cout<<currentstate<<endl;
-
-
 			for (j=0;j<i;j++)						//The production to be used is found 
 				if (productions[j][0] == currentstate)
-					break;
-
-			
-						// cout<<j<<endl;
-			
+					break;			
 		}
 
 		for (int k=0; k<fstate.length(); k++)
